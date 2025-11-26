@@ -1,0 +1,119 @@
+
+/* === contact.css (সম্পূর্ণ নতুন A-Z কোড) === */
+/* এই কোডটি আপনার পাঠানো contact.html ফাইলের জন্য তৈরি করা হয়েছে। */
+
+/* হেডিং সেকশন */
+.contact-hero {
+    background-color: var(--bg-light);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-family: var(--serif-font);
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    line-height: 1.2;
+}
+
+/* ============================================
+  মোবাইল ভিউ (ডিফল্ট) - ১০০% অপরিবর্তিত
+============================================ */
+
+.contact-form-section {
+    padding: 2rem 1.5rem 4rem 1.5rem; /* মোবাইলের জন্য প্যাডিং */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* ডিফল্টরূপে, গ্রিড ১-কলাম হবে (মোবাইল) */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem; /* ফর্ম এবং ম্যাপের মধ্যে ফাঁকা জায়গা */
+}
+
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* ইনপুটগুলোর মধ্যে ফাঁকা জায়গা */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color); /* ডার্ক মোডে এটি ডার্ক হবে */
+    color: var(--text-color); /* ডার্ক মোডে এটি সাদা হবে */
+    font-family: var(--sans-serif-font);
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    width: 100%; /* বাটনটি মোবাইলে পুরো জায়গা নেবে */
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 350px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================
+  পিসি ভিউ (বড় স্ক্রিন) - আপনার কাঙ্ক্ষিত ২-কলাম লেআউট
+============================================ */
+
+/* শুধুমাত্র 992px এর বড় স্ক্রিনে এই কোড কাজ করবে */
+@media (min-width: 992px) {
+
+    .contact-form-section {
+        /* মূল ২-কলাম গ্রিড */
+        grid-template-columns: 1fr 1fr; /* ফর্ম (বাম) | ম্যাপ (ডান) */
+        gap: 3rem;
+        padding: 4rem 5%;
+        /* === ফিক্স: এই লাইনটি এডিট করা হয়েছে === */
+        align-items: stretch; /* 'center' এর বদলে 'stretch' করা হয়েছে */
+    }
+
+    .contact-form button {
+        width: auto; /* পিসিতে বাটনটি ছোট হবে */
+        padding: 0.8rem 2rem;
+        align-self: flex-start; /* বাটনটিকে বামে রাখে */
+    }
+
+    .map-placeholder {
+        height: 100%; /* ম্যাপটি ফর্মের সমান লম্বা হবে */
+        /* min-height: 480px;  এই লাইনটির আর প্রয়োজন নেই, তাই মুছে ফেলা হলো */
+        margin-top: 0;
+    }
+
+    .contact-hero h1 {
+        font-size: 3.5rem; /* পিসিতে হেডিং বড় হবে */
+    }
+}
+
+/* ============================================
+  ডার্ক মোড ফিক্স - আকর্ষণীয় লুক
+============================================ */
+
+/* এই কোডটি ডার্ক মোডেও ফর্ম ইনপুটগুলোকে সাদা রাখবে */
+[data-theme='dark'] .contact-form input,
+[data-theme='dark'] .contact-form textarea {
+    background-color: #FFFFFF; /* ডার্ক মোডেও সাদা ব্যাকগ্রাউন্ড */
+    color: #333333; /* ডার্ক মোডেও ডার্ক টেক্সট */
+    border-color: #555;
+}
+
+/* ডার্ক মোডে প্লেসহোল্ডার টেক্সটের রঙ ঠিক করা */
+[data-theme='dark'] .contact-form input::placeholder,
+[data-theme='dark'] .contact-form textarea::placeholder {
+    color: #777;
+}

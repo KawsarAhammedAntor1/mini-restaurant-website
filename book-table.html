@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - RedDough</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/book-table.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-info">
+                <a href="tel:+8801328226610" class="btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+
+
+            </div>
+            <div class="social-icons">
+                <a href="mailto:reddough19@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com/RedDough1"><i class="fab fa-facebook-f"></i></a>
+
+
+            </div>
+        </div>
+        <nav class="main-nav">
+            <span class="logo">
+                <img src="img/logo.jpg" alt="RedDough Logo" class="logo-img"> RedDough
+            </span>
+            <ul class="nav-links">
+                <li class="nav-close-btn"><i class="fas fa-times"></i></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-button"><a href="book-table.html" class="btn-primary">Book A Table</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="btn-primary btn-primary-desktop" onclick="window.location.href='book-table.html'">Book A Table</button>
+                <div class="theme-toggle">
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0 16a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1zm-7-6H4a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zm14 0h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zM6.34 6.34a1 1 0 0 1-1.41-1.41l.7-.7a1 1 0 1 1 1.41 1.41l-.7.7zm11.32 11.32a1 1 0 0 1-1.41-1.41l.7-.7a1 1 0 0 1 1.41 1.41l-.7.7zM6.34 17.66a1 1 0 0 1 1.41-1.41l-.7-.7a1 1 0 1 1-1.41 1.41l.7.7zm11.32-11.32a1 1 0 0 1 1.41-1.41l-.7-.7a1 1 0 1 1-1.41 1.41l.7.7z"/></svg>
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.75A9.25 9.25 0 1 0 21.25 12 9.25 9.25 0 0 0 12 2.75zM12 20.25a8.25 8.25 0 0 1 0-16.5 5.22 5.22 0 0 0 0 10.45 8.25 8.25 0 0 1 0 6.05z"/></svg>
+                </div>
+                 <div class="hamburger">
+                    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="book-table-hero">
+            <h1>Book Your Table</h1>
+        </section>
+
+        <section class="book-table-form-section">
+            <form class="book-table-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+                <button type="submit" class="btn-primary">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RedDough. All Rights Reserved.</p>
+    </footer>
+
+    <div class="menu-overlay"></div>
+    <script src="js/global.js"></script>
+    <script src="js/book-table.js"></script>
+</body>
+</html>

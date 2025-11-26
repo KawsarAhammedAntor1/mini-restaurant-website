@@ -1,0 +1,345 @@
+:root {
+    --primary-color: #f3ca4c;
+    --secondary-color: #a43c49;
+    --text-color: #333333;
+    --bg-color: #FFFFFF;
+    --bg-light: #FCFCFC;
+    --border-color: #ddd;
+    --serif-font: 'Playfair Display', serif;
+    --sans-serif-font: 'Montserrat', sans-serif;
+}
+
+[data-theme='dark'] {
+    --text-color: #FFFFFF;
+    --bg-color: #1a1a1a;
+    --bg-light: #2a2a2a;
+    --border-color: #555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--sans-serif-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+.top-bar {
+    background-color: var(--primary-color);
+    color: #000;
+    display: flex;
+    flex-direction: row; /* Single horizontal row */
+    justify-content: flex-start; /* Align to the left */
+    align-items: center; /* Vertically center items */
+    gap: 2rem; /* Space between info and icons */
+    padding: 0.5rem 5%;
+    font-size: 0.9rem;
+}
+
+.top-bar-info a {
+    margin-right: 1.5rem;
+}
+
+.top-bar-info i {
+    margin-right: 0.5rem;
+}
+
+.social-icons {
+    margin-top: 0.5rem; /* Add some space between call now and social icons */
+}
+
+.social-icons {
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;  /* Makes the icons bigger */
+    margin: 0 0.8rem;   /* Adds space between icons */
+    color: var(--text-color); /* Ensures they follow dark/light mode */
+}
+
+.main-nav {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+
+.logo {
+    font-family: var(--serif-font);
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img { /* আপনি এই ক্লাসটি ব্যবহার করেননি, কিন্তু এটি এখানে থাকল */
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* এই কোডটি সঠিক আছে। কাজ না করলে Hard Reload (Ctrl+Shift+R) করুন */
+.nav-links a.active::after, 
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+/* এই কোডটিও সঠিক আছে। */
+header .main-nav .nav-links li a.active::after {
+    background-color: var(--secondary-color) !important;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    min-width: 160px;
+    z-index: 10;
+}
+
+.dropdown-content li {
+    margin: 0;
+}
+
+.dropdown-content a {
+    padding: 0.75rem 1rem;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px; /* Added for consistency */
+}
+
+.btn-primary:hover {
+    background-color: #8a303a;
+}
+
+.theme-toggle {
+    /* FIX 1: ডেস্কটপ ভিউতে ডার্ক মোড আইকন দেখানোর জন্য */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5rem;
+    cursor: pointer;
+    line-height: 0; 
+}
+
+.theme-toggle .moon {
+    display: none;
+}
+
+[data-theme='dark'] .theme-toggle .sun {
+    display: none;
+}
+
+[data-theme='dark'] .theme-toggle .moon {
+    display: block;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    line-height: 0; /* For alignment */
+}
+
+/* FIX 2: "X" বাটনটি ডেস্কটপে লুকানোর জন্য এই নতুন রুলটি যোগ করা হলো */
+.nav-close-btn {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-links li.nav-button {
+    display: none; /* Hide button in nav links on desktop */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background-color: var(--bg-color);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        justify-content: flex-start; /* উপর থেকে অ্যালাইন শুরু করার জন্য */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000; 
+        display: flex; 
+        align-items: flex-start; /* সব আইটেম বামে অ্যালাইন করার জন্য */
+        padding: 2rem 3rem; 
+    }
+
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        /* FIX 3: বাটন ও লিঙ্কগুলো বামে অ্যালাইন করার জন্য */
+        text-align: left;
+        width: 100%; /* সব li যেন পুরো প্রস্থ নেয় */
+    }
+
+    .nav-links li.nav-button {
+        display: block; 
+        margin-left: 0; /* FIX 4: বাটনকে বামে অ্যালাইন করার জন্য */
+    }
+
+    .nav-links li.nav-button a {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .nav-links li.nav-button a::after {
+        display: none; 
+    }
+
+    .nav-right .btn-primary-desktop {
+        display: none; 
+    }
+
+    /* .nav-right .theme-toggle - এটি ঠিক আছে, পরিবর্তনের দরকার নেই */
+
+    .hamburger {
+        display: block;
+    }
+
+    .top-bar {
+        display: flex;
+        flex-direction: row;          /* Forces a horizontal row */
+        justify-content: space-between;  /* Pushes items to opposite ends */
+        align-items: center;           /* Vertically centers them */
+        padding: 0.5rem 1rem;            /* Reduces vertical padding to make it thin */
+    }
+
+    .top-bar .btn-primary {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .top-bar-info {
+        margin-bottom: 0;
+    }
+
+    .social-icons {
+        margin: 0; /* Removes extra vertical space */
+        display: flex;
+        align-items: center; /* এটি আপনার আইকনগুলোকে ভার্টিক্যালি সেন্টারে রাখবে */
+    }
+
+    .nav-close-btn {
+        display: block; /* "X" বাটনটি মোবাইলে দেখানোর জন্য */
+        text-align: right; 
+        width: 100%;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998; /* মেন্যুর (1000) চেয়ে কম */
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-bar-info a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    .main-nav {
+        padding: 1rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+}

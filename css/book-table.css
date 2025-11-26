@@ -1,0 +1,40 @@
+/* Styles for Book a Table Page (book-table.html) */
+
+.book-table-hero {
+    background-color: var(--bg-light);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.book-table-hero h1 {
+    font-family: var(--serif-font);
+    font-size: 3.5rem;
+    color: var(--secondary-color);
+}
+
+.book-table-form-section {
+    padding: 4rem 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.book-table-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+.book-table-form input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    font-family: var(--sans-serif-font);
+}
+
+.book-table-form button {
+    align-self: center;
+}

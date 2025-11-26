@@ -1,0 +1,194 @@
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    overflow: hidden; /* Prevents images from spilling out */
+    padding: 2rem;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Ensures text is always on top of images */
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--text-color);
+}
+
+.hero-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color-secondary);
+    margin: 0.2rem 0; /* Adjusted for a very slight gap */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Base style for all hero images */
+.hero-img {
+    position: absolute;
+    z-index: 1; /* Sits behind the text container */
+}
+
+/* Specific styles for desktop collage images */
+.hero-img-1 {
+    width: 250px;
+    top: 10%;
+    left: 5%;
+    transform: rotate(-15deg);
+}
+
+.hero-img-2 { /* Pancakes */
+    width: 280px;
+    bottom: 10%;
+    right: 5%;
+    transform: rotate(10deg);
+    /* FIX: Replaced mix-blend-mode with a subtle shadow for better compatibility */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0.95;
+    border-radius: 8px; /* Optional: adds a nice touch */
+}
+
+.hero-img-3 { /* Avocado Toast */
+    width: 300px;
+    top: 20%;
+    right: 15%;
+    transform: rotate(5deg);
+    /* FIX: Replaced mix-blend-mode with a subtle shadow for better compatibility */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0.95;
+    border-radius: 8px; /* Optional: adds a nice touch */
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    /* CRITICAL FIX: Hide desktop-only collage images on mobile */
+    .hero-img-1,
+    .hero-img-3 {
+        display: none;
+    }
+    
+    /* CRITICAL FIX: Reposition the pancake image for mobile view */
+    .hero-img-2 {
+        display: block; /* Ensure it's visible */
+        position: static; /* Remove absolute positioning */
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+        margin-top: 3rem; /* Space between buttons and image */
+        transform: none; /* Reset rotation */
+        z-index: auto;
+        /* FIX: Ensure no shadow/opacity on mobile */
+        box-shadow: none; 
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    /* CRITICAL FIX: Ensures no unwanted text overlay appears on the image */
+    .hero-img-2::after {
+        content: none !important;
+        display: none !important;
+    }
+}
+
+/* Specialties & Testimonials */
+.specialties, .testimonials {
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+.specialties h2, .testimonials h2 {
+    font-size: 2.5rem;
+    font-family: var(--serif-font);
+    margin-bottom: 3rem;
+}
+
+.specialties-grid, .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.specialty-card, .testimonial-card {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.specialty-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.specialty-card h3 {
+    margin: 1rem 0;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block; /* Ensures margins are applied correctly */
+}
+
+.rating .fa-star {
+    color: var(--primary-color);
+}
+
+blockquote {
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+cite {
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .specialties-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
